@@ -1,0 +1,13 @@
+{
+  "basePath": "./posts",
+  "baseUrl": "/blog/",
+  "templatesPath": "./templates",
+  "outputPath": "./docs",
+  "staticPath": "./static",
+  "outputStaticPath": "/public",
+  "pageTemplate": "page.ejs",
+  "baseTemplate": "base.ejs",
+  "metadata": {
+    "blogTitle": "Test Blog"
+  }
+}
