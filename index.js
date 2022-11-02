@@ -35,8 +35,6 @@ const generateOptions = async (argv) => {
 
 const main = async (argv) => {
   const options = await generateOptions([...argv]);
-
-  console.log("options:", options);
   const sssssssssss = new SSSSSSSSSSS(options);
   await sssssssssss.generate();
 }

@@ -2,6 +2,8 @@
 
 because i am not sure what to call this yet other than yet another static site generator.
 
+[example output can be seen here](https://dmamills.github.io/sssssssssss/)
+
 ## usage
 
 the cli tool accepts the path to an `options.json` file, in this format:
