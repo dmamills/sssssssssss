@@ -15,12 +15,11 @@ class SSSSSSSSSSS {
 
     const outputFiles = [];
     for(let page of pages) {
-      const renderedPage = await this.templateRenderer.renderTemplate(this.options.pageTemplate, { page, metadata: this.options.metadata });
-      console.log(page.path);
+      const renderedPage = await this.templateRenderer.renderTemplate(this.options.pageTemplate, { page, metadata: this.options.metadata, baseUrl: this.options.baseUrl });
       outputFiles.push({ path: `${page.slug}.html`, content: renderedPage})
     }
 
-    const index = await this.templateRenderer.renderTemplate('index.ejs', { pages, metadata: this.options.metadata });
+    const index = await this.templateRenderer.renderTemplate('index.ejs', { pages, metadata: this.options.metadata, baseUrl: this.options.baseUrl });
     outputFiles.push({ path: 'index.html', content: index });
     await this.contentWriter.write(outputFiles);
     await this.contentWriter.statics();

@@ -2,7 +2,7 @@ const fs = require('fs/promises');
 const ejs = require('ejs');
 
 class TemplateRenderer {
-  constructor(templatePath, baseTemplate) {
+  constructor(templatePath, baseTemplate, basePath) {
     this.templateCache = {};
     this.templatePath = templatePath;
     this.baseTemplate = baseTemplate;

@@ -9,6 +9,7 @@ the cli tool accepts the path to an `options.json` file, in this format:
 ```
 {
   "basePath": "./posts", // Where your individual blog markdown pages are stored
+  "baseUrl": "/", //subdomain if required
   "templatesPath": "./templates", //Where your page/base/index templates are stored
   "outputPath": "./docs", //Where to put the generated html files
   "staticPath": "./static", //Where your static files are stored, everything in this will be copied to options.outputStaticPath
@@ -33,7 +34,7 @@ date: 2022-01-01
 ---
 ```
 
-any key value pairs provided in the header will be available to the view.
+any key value pairs provided in the header will be available to the view in the `metadata` object.
 
 ## Index Page
 
@@ -46,7 +47,8 @@ The `page` structure is:
   date: '2022-01-01'
   ...headers, // any additional headers provided
   content: 'html string of template content',
-  slug: 'the-blog-title-in-a-url-friendly-format'
+  slug: 'the-blog-title-in-a-url-friendly-format',
+  path: '/qualified/path/to/the-blog-title-in-a-url-friendly-format.html'
 }
 ```
 

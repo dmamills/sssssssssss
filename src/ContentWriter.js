@@ -2,10 +2,10 @@ const fs = require('fs/promises');
 
 class ContentWriter {
   constructor(options) {
-    this.outputPath = options.baseUrl === '/' ? options.outputPath : `${options.outputPath}${options.baseUrl}`;
+    this.outputPath = options.outputPath;
     this.staticPath = options.staticPath;
     this.outputStaticPath = options.outputStaticPath;
-    this.outputBase = options.outputPath;
+    //this.outputBase = options.outputPath;
   }
 
   ensureDirExists = async (path) => {
@@ -17,7 +17,6 @@ class ContentWriter {
   }
 
   createBuildDir = async () => {
-    await this.ensureDirExists(this.outputBase);
     await this.ensureDirExists(this.outputPath);
     await this.ensureDirExists(`${this.outputPath}${this.outputStaticPath}`)
   }
