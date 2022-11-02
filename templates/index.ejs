@@ -1,9 +1,9 @@
 <div class="container">
   <h1><%= metadata.blogTitle %></h1>
-  <p>Table of Contents</p>
+  <h2>Table of Contents</h2>
   <ul>
     <% for(let i =0; i < pages.length; i++) {%>
-      <li><a href="<%= pages[i].path %>"><%= (i+1).toString().padStart(2, 0) %> - <%= pages[i].title %></a></li>
+      <li class="unstyled"><a href="<%= pages[i].path %>"><%= (i+1).toString().padStart(2, 0) %> - <%= pages[i].title %></a></li>
     <% } %>
   </ul>
 </div>
