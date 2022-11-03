@@ -19,9 +19,10 @@ const extract = (content) => {
 
 
 class ContentExtractor {
-  constructor(basePath, baseUrl) {
-    this.basePath = basePath;
-    this.baseUrl = baseUrl;
+  constructor(options) {
+    this.basePath = options.basePath;
+    this.baseUrl = options.baseUrl;
+    this.baseFolder = options.baseFolder;
   }
 
   parsePage = async (page) => {
@@ -35,11 +36,11 @@ class ContentExtractor {
     }
   }
 
-  async processPages() {
-    const files = await fs.readdir(this.basePath);
+  processPages = async () => {
+    const files = await fs.readdir(`${this.baseFolder}/${this.basePath}`);
     const parsedPages = [];
     for(let file of files) {
-      const content = await fileToString(`${this.basePath}/${file}`);
+      const content = await fileToString(`${this.baseFolder}/${this.basePath}/${file}`);
       const parsed = await this.parsePage(content);
       parsedPages.push(parsed);
     }

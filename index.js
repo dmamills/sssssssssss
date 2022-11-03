@@ -2,10 +2,11 @@ const SSSSSSSSSSS = require('./src/SSSSSSSSSSS');
 const { fileToString, optionsFileInArgs } = require('./src/utils');
 
 const DEFAULT_OPTIONS = {
-  basePath: './posts',
-  templatesPath: './templates',
+  baseFolder: './example',
+  basePath: '/posts',
+  templatesPath: '/templates',
+  staticPath: '/static',
   outputPath: './docs',
-  staticPath: './static',
   baseUrl: '/',
   outputStaticPath: '/public',
   pageTemplate: 'page.ejs',

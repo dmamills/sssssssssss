@@ -2,16 +2,17 @@ const fs = require('fs/promises');
 const ejs = require('ejs');
 
 class TemplateRenderer {
-  constructor(templatePath, baseTemplate, basePath) {
+  constructor(options) {
     this.templateCache = {};
-    this.templatePath = templatePath;
-    this.baseTemplate = baseTemplate;
+    this.templatesPath = options.templatesPath;
+    this.baseTemplate = options.baseTemplate;
+    this.baseFolder = options.baseFolder
   }
 
-  loadTemplate = async (filename)  => {
+  loadTemplate = async (filename) => {
     if(this.templateCache[filename]) return this.templateCache[filename];
-    const results = (await fs.readFile(`${this.templatePath}/${filename}`)).toString();
-
+    const templatePath = `${this.baseFolder}${this.templatesPath}/${filename}`;
+    const results = (await fs.readFile(templatePath)).toString();
     this.templateCache[filename] = results;
     return results;
   }

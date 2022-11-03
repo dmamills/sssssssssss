@@ -24,7 +24,7 @@ the cli tool accepts the path to an `options.json` file, in this format:
 }
 ```
 
-You can run it using `blog my-options-file.json`
+You can run it using `sssssssssss my-options-file.json`
 
 ## Pages
 
