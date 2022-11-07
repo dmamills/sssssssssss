@@ -3,12 +3,8 @@ const { fileToString, optionsFileInArgs } = require('./src/utils');
 
 const DEFAULT_OPTIONS = {
   baseFolder: './example',
-  basePath: '/posts',
-  templatesPath: '/templates',
-  staticPath: '/static',
   outputPath: './docs',
   baseUrl: '/',
-  outputStaticPath: '/public',
   pageTemplate: 'page.ejs',
   baseTemplate: 'base.ejs',
   metadata: {

@@ -1,10 +1,7 @@
 {
-  "basePath": "./posts",
-  "baseUrl": "/sssssssssss/",
-  "templatesPath": "./templates",
+  "baseFolder": "./example",
   "outputPath": "./docs",
-  "staticPath": "./static",
-  "outputStaticPath": "/public",
+  "baseUrl": "/",
   "pageTemplate": "page.ejs",
   "baseTemplate": "base.ejs",
   "metadata": {

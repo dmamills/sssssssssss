@@ -10,12 +10,9 @@ the cli tool accepts the path to an `options.json` file, in this format:
 
 ```
 {
-  "basePath": "./posts", // Where your individual blog markdown pages are stored
+  "baseFolder": "./example" // Where your posts/templates/static files are located
   "baseUrl": "/", //subdomain if required
-  "templatesPath": "./templates", //Where your page/base/index templates are stored
   "outputPath": "./docs", //Where to put the generated html files
-  "staticPath": "./static", //Where your static files are stored, everything in this will be copied to options.outputStaticPath
-  "outputStaticPath": "/public", // Where you will access your static files in the generated build
   "pageTemplate": "page.ejs", //The name of your page template, this is used for every markdown file in your "basePath"
   "baseTemplate": "base.ejs", // The base template that will be used by both index+page views
   "metadata": { //The metadata object is provided to each rendered view

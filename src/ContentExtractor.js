@@ -17,10 +17,10 @@ const extract = (content) => {
   return { headers, extractedContent: lines.join('\n') };
 }
 
+const POST_PATH = '/posts';
 
 class ContentExtractor {
   constructor(options) {
-    this.basePath = options.basePath;
     this.baseUrl = options.baseUrl;
     this.baseFolder = options.baseFolder;
   }
@@ -37,10 +37,10 @@ class ContentExtractor {
   }
 
   processPages = async () => {
-    const files = await fs.readdir(`${this.baseFolder}/${this.basePath}`);
+    const files = await fs.readdir(`${this.baseFolder}/${POST_PATH}`);
     const parsedPages = [];
     for(let file of files) {
-      const content = await fileToString(`${this.baseFolder}/${this.basePath}/${file}`);
+      const content = await fileToString(`${this.baseFolder}/${POST_PATH}/${file}`);
       const parsed = await this.parsePage(content);
       parsedPages.push(parsed);
     }
