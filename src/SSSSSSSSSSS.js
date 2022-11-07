@@ -6,8 +6,8 @@ class SSSSSSSSSSS {
   constructor(options) {
     this.options = options;
     this.contentWriter = new ContentWriter(options);
-    this.extractor = new ContentExtractor(options.basePath, options.baseUrl);
-    this.templateRenderer = new TemplateRenderer(options.templatesPath, options.baseTemplate);
+    this.extractor = new ContentExtractor(options);
+    this.templateRenderer = new TemplateRenderer(options);
   }
 
   generate = async () => {
@@ -21,6 +21,7 @@ class SSSSSSSSSSS {
 
     const index = await this.templateRenderer.renderTemplate('index.ejs', { pages, metadata: this.options.metadata, baseUrl: this.options.baseUrl });
     outputFiles.push({ path: 'index.html', content: index });
+
     await this.contentWriter.write(outputFiles);
     await this.contentWriter.statics();
   }
