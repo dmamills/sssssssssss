@@ -32,10 +32,9 @@ class ContentWriter {
   }
 
   readAndCopyDirectory = async (path) => {
-    console.log('Read and copy:', path);
     const files = await fs.readdir(path);
     const dirWritePath = `${this.outputPath}${this.outputStaticPath}${path}`
-      .replace('./static', '')
+      .replace('/static', '')
       .replace(this.baseFolder, '');
 
     await this.ensureDirExists(dirWritePath);
@@ -47,14 +46,10 @@ class ContentWriter {
         await this.readAndCopyDirectory(currentPath);
       } else {
 
-
-        const writePath = `${this.outputPath}${this.outputStaticPath}${currentPath}`
+        const writePath = npath.resolve(`${this.outputPath}${this.outputStaticPath}${currentPath}`
         .replace(this.staticPath, '')
-        .replace(this.baseFolder, '');
-        console.log('Found a file going to copy from', currentPath, ' to ', writePath);
-
-        console.log(npath.resolve(writePath));
-        await fs.copyFile(npath.resolve(currentPath), npath.resolve(writePath));
+        .replace(this.baseFolder, ''));
+        await fs.copyFile(npath.resolve(currentPath), writePath);
       }
     }
   }
