@@ -3,8 +3,27 @@ const fs = require('fs/promises');
 
 const { fileToString, slugify } = require('./utils');
 
-const extract = (content) => {
-  const lines = content.split('\n')
+
+function rewriteAsset(asset, baseUrl) {
+  // @asset(img, "public/img/sssssssssss.png")
+
+
+  const tagType = asset.split('@asset(')[1].split(',')[0];
+  const path = asset.split('@asset(')[1].split(',')[1].split(')')[0].trim().replace(/"/g, '')
+
+  let newContent = '';
+  if(tagType === 'img') {
+    newContent = `<img src="${baseUrl}${path}" />`;
+  } else if (tagType === 'script') {
+    newContent = `<script src="${baseUrl}${path}"></script>`;
+  }
+  
+  return newContent
+}
+
+
+const extract = (content, baseUrl) => {
+  let lines = content.split('\n')
   const headers = {};
   lines.shift();
   let currentLine = lines.shift();
@@ -14,7 +33,19 @@ const extract = (content) => {
     currentLine = lines.shift()
   }
 
-  return { headers, extractedContent: lines.join('\n') };
+
+  lines = lines.map(line => {
+    if(line.indexOf('@asset') > -1) {
+      console.log('found asset to rewrite');
+      line = rewriteAsset(line, baseUrl);
+    }
+    return line;
+  })
+
+  let extractedContent = lines.join('\n');
+
+  console.log(extractedContent);
+  return { headers, extractedContent};
 }
 
 const POST_PATH = '/posts';
@@ -26,8 +57,8 @@ class ContentExtractor {
   }
 
   parsePage = async (page) => {
-    const { headers, extractedContent }  = extract(page);
-    const html = markdown(extractedContent);
+    const { headers, extractedContent }  = extract(page, this.baseUrl);
+    const html = markdown(extractedContent, this.baseUrl);
     return {
       ...headers,
       content: html,
