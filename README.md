@@ -1,5 +1,7 @@
 # code name: sssssssssss
 
+![tests](https://github.com/dmamills/sssssssssss/actions/workflows/node.js.yml/badge.svg)
+
 because i am not sure what to call this yet other than yet another static site generator.
 
 [example output can be seen here](https://dmamills.github.io/sssssssssss/)
