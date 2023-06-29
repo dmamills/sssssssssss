@@ -59,3 +59,29 @@ The `page` structure is:
 ## example
 
 When you clone this repo, you can use the directories provided to generate an example using: `node debug.js example-options.json`. This will create an `output` directory where you can see the outputted files.
+
+
+
+## arch
+
+`sssssssssss` is broken down into three main components:
+
+- `ContentExtractor` is responsible for parsing all of the `page` files within the `/posts` directory. It renders the markdown, as well as applies the transformation to `@asset` tags.
+The return value from the extractor is an array of `pages` in the following structure:
+
+```
+{
+  title: '',
+  date: '',
+  //...another other header metadata
+  content: 'html content of markdown page',
+  slug: '<date>-slugified-version-of-title',
+  path: 'url html path to file'
+}
+```
+
+- `TemplateRenderer` is reponsible for converting each of the processed `pages` through the `ejs` compiler. This is a two step process. First the `page` is rendered to the `/templates/page.ejs`, then the `/templates/base.ejs`. Each of these templates receive the `page` object from the `ContentExtractor` in their view.
+
+The `TemplateRenderer` is also called to render the `index` page. This page uses the `/templates/index.ejs` and recieves all of the pages, as well as the full options metadata in it's view.
+
+- `ContentWriter` is responsible for taking the rendered pages and outputting them to the `options.outputPath`. It will write all index, and pages. As well as copy over any static files it finds in the `/statics` directory. 
