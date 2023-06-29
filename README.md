@@ -33,7 +33,9 @@ date: 2022-01-01
 ---
 ```
 
-any key value pairs provided in the header will be available to the view in the `metadata` object.
+### Markdown Assets
+
+If you require the use of additional assets in your markdown files, you can include them using the `@asset` For example: `@asset(script, "public/js/script.js")` This file maps to your `/static` folder. This will be converted to the proper html tag at compile time, and ensure your `baseUrl` has been included.
 
 ## Index Page
 
