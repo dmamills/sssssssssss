@@ -2,7 +2,7 @@ const fs = require('fs/promises');
 
 const fileToString = async (filepath) => { return (await fs.readFile(filepath)).toString(); }
 
-const slugify = (headers) => `${headers.date}-${headers.title.toLowerCase().split(' ').join('_')}`;
+const slugify = (headers) => `${headers.date}-${headers.title.toLowerCase().split(' ').join('-')}`;
 
 const optionsFileInArgs = (args) => {
   let optionsFile = null;
