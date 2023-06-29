@@ -16,6 +16,8 @@ function rewriteAsset(asset, baseUrl) {
     newContent = `<img src="${baseUrl}${path}" />`;
   } else if (tagType === 'script') {
     newContent = `<script src="${baseUrl}${path}"></script>`;
+  } else if (tagType === 'style') {
+    newContent = `<link rel="stylesheet" href="${baseUrl}${path}" />`;
   }
   
   return newContent
@@ -36,15 +38,12 @@ const extract = (content, baseUrl) => {
 
   lines = lines.map(line => {
     if(line.indexOf('@asset') > -1) {
-      console.log('found asset to rewrite');
       line = rewriteAsset(line, baseUrl);
     }
     return line;
   })
 
-  let extractedContent = lines.join('\n');
-
-  console.log(extractedContent);
+  const extractedContent = lines.join('\n');
   return { headers, extractedContent};
 }
 

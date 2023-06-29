@@ -10,8 +10,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Ante in nibh mauris cursus. At erat pellentesque adipiscing commodo elit at. Nec nam aliquam sem et tortor consequat id. Odio ut sem nulla pharetra. Maecenas ultricies mi eget mauris pharetra et ultrices. Massa sapien faucibus et molestie ac feugiat sed. Vitae justo eget magna fermentum iaculis eu non. Mattis enim ut tellus elementum sagittis vitae. Cras sed felis eget velit aliquet. Dui ut ornare lectus sit amet.
 
 
+<div id="box"></div>
+
 <button id="btn">JavatheScript</button>
 
 @asset(script, "public/js/script.js")
+@asset(style, "public/css/second.css")
 
 
