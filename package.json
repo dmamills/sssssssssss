@@ -5,7 +5,9 @@
   "main": "index.js",
   "bin": "bin/sssssssssss",
   "scripts": {
-    "test": "mocha tests/*.test.js"
+    "test": "mocha tests/*.test.js",
+    "coverage": "nyc --reporter=lcov --reporter=text mocha tests/*.test.js",
+    "codecov": "nyc --reporter=lcov --reporter=text mocha tests/*.test.js"
   },
   "author": "dmamills",
   "license": "MIT",
@@ -15,6 +17,7 @@
   },
   "devDependencies": {
     "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
     "should": "^13.2.3",
     "sinon": "^15.2.0"
   }

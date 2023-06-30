@@ -1,6 +1,6 @@
 # code name: sssssssssss
 
-![tests](https://github.com/dmamills/sssssssssss/actions/workflows/node.js.yml/badge.svg)
+![tests](https://github.com/dmamills/sssssssssss/actions/workflows/node.js.yml/badge.svg) [![codecov](https://codecov.io/gh/dmamills/sssssssssss/branch/master/graph/badge.svg?token=A3KD0MREI2)](https://codecov.io/gh/dmamills/sssssssssss)
 
 because i am not sure what to call this yet other than yet another static site generator.
 
